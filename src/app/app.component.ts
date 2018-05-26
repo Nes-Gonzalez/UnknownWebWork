@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridsterConfig, GridsterItem, DisplayGrid, CompactType, GridType }  from 'angular-gridster2';
+import { GridsterConfig, GridsterItem, DisplayGrid, CompactType, GridType } from 'angular-gridster2';
 
 @Component({
   selector: 'app-root',
