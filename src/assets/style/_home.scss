@@ -4,8 +4,11 @@ body{
 
 .title-bar{
     height: 3em;
-    background-color: darkgray;
+    background-color: #2399e5;
+    color: white;
     margin: 0;
+    padding-left: 2em;
+    padding-right: 2em;
     display: block;
     span{
         margin-left: auto;
@@ -14,7 +17,41 @@ body{
     }
 }
 
+.tile-title{
+    height: 1.2em;
+    background-color: #2399e5;
+    display:block;
+    text-align: center;
+    span{
+        margin-left: auto;
+        margin-right: auto;
+        color:white;
+    }
+}
+
+.close-button-div{
+    display: absolute;
+}
+
+.close-button{
+    font-size: .6em !important;
+    float: right;
+    margin-right:1em;
+}
+
+.tile-body{
+    background-color: white;
+    height: calc(100% - 1.2em - .3em);
+    border-left: solid .3em #2399e5;
+    border-right: solid .3em #2399e5;
+    border-bottom: solid .3em #2399e5;
+}
+
 .main-grid{
     height: calc(100vh - 3em);
-    background-color: green;
+    background-color: white;
+}
+
+.menu-button{
+    background-color: transparent;
 }

@@ -1,13 +1,22 @@
 <div class="ui-g title-bar">
+    <button class="menu-button" type="text" (click)="showSideBar = !showSideBar" pButton icon="fa-bars"></button>
     <span>Hello</span>
 </div>
 <gridster class="main-grid" [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
         <div class="tile-title">
             <span>tile title</span>
+            <button class="close-button" (click)="removeItem(item)" type="text" pButton icon="fa-times"></button>
         </div>
         <div class="tile-body">
             <span> tile body</span>
         </div>
     </gridster-item>
 </gridster>
+
+<p-sidebar [(visible)]="showSideBar" appendTo="body">
+    <div class="ui-g">
+        <span class="ui-g-12">Side Menu Title</span>
+        <button class="ui-g-12" type="text" (click)="addItem()" pButton label="Add Panel"></button>
+    </div>
+</p-sidebar>

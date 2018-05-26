@@ -9,6 +9,7 @@ import { GridsterConfig, GridsterItem, DisplayGrid, CompactType, GridType }  fro
 export class AppComponent implements OnInit {
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
+  showSideBar: false;
 
   static itemChange(item, itemComponent) {
     console.log('itemChanged', item, itemComponent);
