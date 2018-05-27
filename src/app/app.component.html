@@ -1,15 +1,15 @@
 <div class="ui-g title-bar">
     <button class="menu-button" type="text" (click)="showSideBar = !showSideBar" pButton icon="fa-bars"></button>
-    <span>Hello</span>
+    <span> Draggable Tile Layout</span>
 </div>
 <gridster class="main-grid" [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
         <div class="tile-title">
-            <span>tile title</span>
+            <span>Drag Me!</span>
             <button class="close-button" (click)="removeItem(item)" type="text" pButton icon="fa-times"></button>
         </div>
         <div #tileBody class="tile-body">
-            <app-table [columnData]="cols" [rowData]="cars" ></app-table>
+            <ng-container *ngTemplateOutlet="item.template"></ng-container>
         </div>
     </gridster-item>
 </gridster>
@@ -17,6 +17,21 @@
 <p-sidebar [(visible)]="showSideBar" appendTo="body">
     <div class="ui-g">
         <span class="ui-g-12">Side Menu Title</span>
-        <button class="ui-g-12" type="text" (click)="addItem()" pButton label="Add Panel"></button>
+        <button class="ui-g-12 side-menu-button" type="text" (click)="addTable()" pButton label="Add Table"></button>
+        <button class="ui-g-12 side-menu-button" type="text" (click)="addPieChart()" pButton label="Add Pie Chart"></button>
     </div>
 </p-sidebar>
+
+<ng-template #table>
+    <app-table [columnData]="cols" [rowData]="cars" ></app-table>
+</ng-template>
+
+<ng-template #barChart>
+    <app-bar-chart></app-bar-chart>
+</ng-template>
+
+<ng-template #pieChart>
+    <app-pie-chart [data]="pieData"></app-pie-chart>
+</ng-template>
+
+<p-growl [(value)]="msgs" [sticky]="false"></p-growl>

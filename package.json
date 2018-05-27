@@ -29,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "angular-gridster2": "^6.0.5",
+    "chart.js": "^2.7.2",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "font-awesome": "^4.7.0",
