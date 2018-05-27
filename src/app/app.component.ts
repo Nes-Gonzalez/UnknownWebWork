@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GridsterConfig, GridsterItem, DisplayGrid, CompactType, GridType } from 'angular-gridster2';
 
 @Component({
@@ -11,15 +11,19 @@ export class AppComponent implements OnInit {
   dashboard: Array<GridsterItem>;
   showSideBar: false;
 
+  cars: any[];
+  cols: any[];
+
   static itemChange(item, itemComponent) {
-    console.log('itemChanged', item, itemComponent);
+    // console.log('itemChanged', item, itemComponent);
   }
 
   static itemResize(item, itemComponent) {
-    console.log('itemResized', item, itemComponent);
+    // console.log('itemResized', item, itemComponent);
   }
 
   ngOnInit(): void {
+
     this.options = {
       itemChangeCallback: AppComponent.itemChange,
       itemResizeCallback: AppComponent.itemResize,
@@ -67,7 +71,7 @@ export class AppComponent implements OnInit {
       pushItems: true,
       disablePushOnDrag: false,
       disablePushOnResize: false,
-      pushDirections: {north: true, east: true, south: true, west: true},
+      pushDirections: { north: true, east: true, south: true, west: true },
       pushResizeItems: true,
       displayGrid: DisplayGrid.None,
       disableWindowResize: false,
@@ -76,10 +80,39 @@ export class AppComponent implements OnInit {
     };
 
     this.dashboard = [
-      {cols: 2, rows: 1, y: 0, x: 0},
-      {cols: 2, rows: 2, y: 0, x: 2}
+      { cols: 6, rows: 3, y: 0, x: 0 },
+      { cols: 6, rows: 6, y: 0, x: 2 },
+      { cols: 6, rows: 6, y: 1, x: 2 }
+    ];
+
+    this.cols = [
+      { field: 'vin', header: 'Vin' },
+      { field: 'year', header: 'Year' },
+      { field: 'brand', header: 'Brand' },
+      { field: 'color', header: 'Color' }
+    ];
+
+    this.cars = [
+      {vin: 1112236942, year: 2015, brand: 'Honda', color: 'Red'},
+      {vin: 1123532422, year: 2014, brand: 'Honda', color: 'Silver'},
+      {vin: 1118869322, year: 2016, brand: 'Honda', color: 'White'},
+      {vin: 1112347822, year: 2017, brand: 'Honda', color: 'Blue'},
+      {vin: 1111665422, year: 2018, brand: 'Honda', color: 'Black'},
+
+      {vin: 1234786942, year: 2015, brand: 'Ford', color: 'Red'},
+      {vin: 1458242762, year: 2014, brand: 'Ford', color: 'Silver'},
+      {vin: 1967834322, year: 2016, brand: 'Ford', color: 'White'},
+      {vin: 1783768522, year: 2017, brand: 'Ford', color: 'Blue'},
+      {vin: 1542458542, year: 2018, brand: 'Ford', color: 'Black'},
+
+      {vin: 2386923442, year: 2015, brand: 'Acura', color: 'Red'},
+      {vin: 2342762234, year: 2014, brand: 'Acura', color: 'Silver'},
+      {vin: 2336431262, year: 2016, brand: 'Acura', color: 'White'},
+      {vin: 2368522236, year: 2017, brand: 'Acura', color: 'Blue'},
+      {vin: 2358542267, year: 2018, brand: 'Acura', color: 'Black'}
     ];
   }
+
 
   changedOptions() {
     this.options.api.optionsChanged();
@@ -90,7 +123,12 @@ export class AppComponent implements OnInit {
   }
 
   addItem() {
-    this.dashboard.push({cols: 2, rows: 2, y: 0, x: 2});
+    this.dashboard.push({ cols: 2, rows: 2, y: 0, x: 2 });
+  }
+
+
+  tileResize(event: any) {
+    console.log(event);
   }
 
 }

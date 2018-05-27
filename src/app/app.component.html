@@ -8,8 +8,8 @@
             <span>tile title</span>
             <button class="close-button" (click)="removeItem(item)" type="text" pButton icon="fa-times"></button>
         </div>
-        <div class="tile-body">
-            <span> tile body</span>
+        <div #tileBody class="tile-body">
+            <app-table [columnData]="cols" [rowData]="cars" ></app-table>
         </div>
     </gridster-item>
 </gridster>
